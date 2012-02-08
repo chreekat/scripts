@@ -6,3 +6,10 @@ changes between the index and working tree if using that later one!
 
 *Unless* there are unmerged conflicts, in which case vimdiffem will load up
 those!
+
+TODO
+----
+
+* Now that I know about :redir and the :arg\* commands, use those to make
+  `vimdiffem` available from an existing session, allowing a restore of existing
+  arglists!
