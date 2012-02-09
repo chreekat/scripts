@@ -28,6 +28,11 @@ get_title () {
 }
 
 get_fn () {
+    found_draft=$(ack -l "^title: $title$" $Blog_Dir)
+    if [ -n "$found_draft" ]; then
+        echo $found_draft
+        return
+    fi
     title=$(echo $@| tr ' ' '-' | tr -cd '[:alnum:]-' | tr '[:upper:]' '[:lower:]')
     title=$(date +"%Y-%m-%d-$title")
     # Not too long
