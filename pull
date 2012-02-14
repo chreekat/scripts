@@ -23,4 +23,6 @@ if ! (echo ${subtrees[*]} | grep -qw $tree); then
     die "$usage"
 fi
 
-git subtree pull --squash -P $tree git@github.com:chreekat/${tree}.git master
+git subtree pull --squash -P $tree git@github.com:chreekat/${tree}.git master &&
+git push
+
