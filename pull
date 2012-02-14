@@ -1,0 +1,26 @@
+#!/bin/bash
+
+subtrees=(tickler vimdiffem blog)
+
+die () {
+    2>&1 echo "$@"
+    exit 1
+}
+
+usage="
+    usage: $0 <subtree>
+
+  Subtrees: ${subtrees[*]}
+"
+
+if [ $# != 1 ]; then
+    die "$usage"
+fi
+
+tree=${1%/}
+
+if ! (echo ${subtrees[*]} | grep -qw $tree); then
+    die "$usage"
+fi
+
+git subtree pull --squash -P $tree git@github.com:chreekat/${tree}.git master
