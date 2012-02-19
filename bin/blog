@@ -2,7 +2,7 @@
 
 # Begin editing a new blog, or an unpublished draft.
 
-Blog_Dir=~/Org/gh-blog/_posts
+Blog_Dir=~/Org/gh-blog/source/_posts
 
 get_title () {
     title="NEW"
@@ -50,7 +50,10 @@ main () {
 ---
 published: false
 layout: post
+categories: 
 title: $title
+date: $(date '+%Y-%m-%d %H:%M')
+comments: true
 ---
 EOF
     fi
